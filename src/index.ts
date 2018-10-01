@@ -11,7 +11,9 @@ export default function devalue(value: any) {
 
 	function walk(thing: any) {
 		if (typeof thing === 'function') {
-			throw new Error(`Cannot stringify a function`);
+			thing = null;
+			return;
+			//throw new Error(`Cannot stringify a function`);
 		}
 
 		if (counts.has(thing)) {
